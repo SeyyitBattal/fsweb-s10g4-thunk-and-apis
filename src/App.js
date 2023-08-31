@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Item from "./components/Item";
 import FavItem from "./components/FavItem";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchAnother } from "./actions";
+import { depo } from ".";
 
 export default function App() {
   const loading = false;
@@ -11,6 +12,9 @@ export default function App() {
   const favs = [];
 
   function addToFavs() {}
+
+  const deneme = useSelector((depo) => depo.current);
+  console.log("deneme", deneme);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,7 +40,7 @@ export default function App() {
           Favoriler
         </NavLink>
       </nav>
-
+      aaaaa
       <Switch>
         <Route exact path="/">
           {loading && (

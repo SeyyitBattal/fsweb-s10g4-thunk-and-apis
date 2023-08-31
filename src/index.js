@@ -10,7 +10,7 @@ import { applyMiddleware, legacy_createStore as createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 
-const depo = createStore(myReducer, applyMiddleware(logger, thunk));
+export const depo = createStore(myReducer, applyMiddleware(logger, thunk));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
