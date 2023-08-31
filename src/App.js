@@ -13,8 +13,7 @@ export default function App() {
 
   function addToFavs() {}
 
-  const deneme = useSelector((depo) => depo.current);
-  console.log("deneme", deneme);
+  const myData = useSelector((depo) => depo.current);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -40,13 +39,13 @@ export default function App() {
           Favoriler
         </NavLink>
       </nav>
-      aaaaa
+
       <Switch>
         <Route exact path="/">
           {loading && (
             <div className="bg-white p-6 text-center shadow-md">YÜKLENİYOR</div>
           )}
-          {current && <Item data={current} />}
+          {<Item data={myData} />}
 
           <div className="flex gap-3 justify-end py-3">
             <button className="select-none px-4 py-2 border border-blue-700 text-blue-700 hover:border-blue-500 hover:text-blue-500">
