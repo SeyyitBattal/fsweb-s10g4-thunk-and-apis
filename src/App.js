@@ -7,7 +7,7 @@ import { FAV_ADD, fetchAnother } from "./actions";
 import { depo } from ".";
 
 export default function App() {
-  const loading = true;
+  const loading = false;
   const current = null;
   const favs = [];
 

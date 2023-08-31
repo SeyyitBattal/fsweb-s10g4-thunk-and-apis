@@ -21,7 +21,7 @@ export const removeFav = (id) => {
 
 export const fetchAnother = () => (dispatch) => {
   axios.get("https://catfact.ninja/fact").then((res) => {
-    console.log("API ile gelen data: ", res.data.fact);
     dispatch({ type: FETCH_SUCCESS, payload: res.data.fact });
+    console.log("API ile gelen data: ", res.data.fact);
   });
 };
