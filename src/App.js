@@ -8,15 +8,13 @@ import { depo } from ".";
 
 export default function App() {
   const loading = false;
-  const current = null;
-  const favs = [];
+  // const current = null;
 
-  const favInfo = useSelector((depo) => depo.favs);
+  const favs = useSelector((depo) => depo.favs);
+  const current = useSelector((depo) => depo.current);
   function addToFavs() {
-    dispatch({ type: FAV_ADD, payload: favInfo });
+    dispatch({ type: FAV_ADD, payload: current });
   }
-
-  const myData = useSelector((depo) => depo.current);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -48,7 +46,7 @@ export default function App() {
           {loading && (
             <div className="bg-white p-6 text-center shadow-md">YÜKLENİYOR</div>
           )}
-          {<Item data={myData} />}
+          {<Item data={current} />}
 
           <div className="flex gap-3 justify-end py-3">
             <button
@@ -69,8 +67,8 @@ export default function App() {
         <Route path="/favs">
           <div className="flex flex-col gap-3">
             {favs.length > 0 ? (
-              favs.map((item) => (
-                <FavItem key={item.key} id={item.key} title={item.activity} />
+              favs.map((item, key) => (
+                <FavItem key={key} id={key} title={item} />
               ))
             ) : (
               <div className="bg-white p-6 text-center shadow-md">
